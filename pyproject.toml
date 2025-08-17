@@ -10,7 +10,7 @@ packages = [{ include = "data_validator", from = "src" }]
 [tool.poetry.dependencies]
 python = "^3.10"
 pyyaml = "^6.0"
-simpleeval = "^0.9.13"
+simpleeval = "^1.0.3"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0"
