@@ -8,9 +8,9 @@ class RuleEngine:
         self.rules = rules
 
     def eval_expr(self, expr, context):
-        s = SimpleEval()
+        s = SimpleEval(names=context)
         s.operators[ast.List] = list
-        return s.eval(expr, names=context)
+        return s.eval(expr)
 
     def check_row(self, row_idx, rows, rule, filename=""):
         curr = rows[row_idx]
