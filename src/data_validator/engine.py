@@ -9,8 +9,11 @@ class RuleEngine:
 
     def eval_expr(self, expr, context):
         s = SimpleEval(names=context)
-        print(f"Evaluating expression: {expr}")
-        return s.eval(expr)
+        try:
+            result = s.eval(expr)
+        except Exception as e:
+            raise ValueError(f"Error evaluating expression '{expr} with context {context}': {e}")
+        return result
 
     def check_row(self, row_idx, rows, rule, filename=""):
         curr = rows[row_idx]
