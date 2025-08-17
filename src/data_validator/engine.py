@@ -1,4 +1,5 @@
-from simpleeval import simple_eval
+import ast
+from simpleeval import SimpleEval
 from .utils import SafeRow
 from .models import ValidationResult
 
@@ -7,7 +8,9 @@ class RuleEngine:
         self.rules = rules
 
     def eval_expr(self, expr, context):
-        return simple_eval(expr, names=context)
+        s = SimpleEval()
+        s.operators[ast.List] = list
+        return s.eval(expr, names=context)
 
     def check_row(self, row_idx, rows, rule, filename=""):
         curr = rows[row_idx]
