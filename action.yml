@@ -1,0 +1,17 @@
+name: 'Data Validator'
+description: 'Validate CSV data using YAML rules'
+inputs:
+  rules:
+    description: 'Path to rules.yaml'
+    required: true
+  data:
+    description: 'Path(s) to CSV file(s)'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - "--rules"
+    - "${{ inputs.rules }}"
+    - "--data"
+    - "${{ inputs.data }}"

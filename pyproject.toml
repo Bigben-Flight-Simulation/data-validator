@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "data-validator"
+version = "0.1.0"
+description = "Rule-based data validation tool with YAML configuration"
+authors = ["Sparrow He <sparrowhe@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "data_validator", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyyaml = "^6.0"
+simpleeval = "^0.9.13"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0"
+black = "^24.0"
+ruff = "^0.4"
+
+[tool.poetry.scripts]
+data-validator = "data_validator.cli:main"
