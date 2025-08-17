@@ -6,4 +6,4 @@ COPY src/ ./src/
 RUN pip install poetry \
     && poetry config virtualenvs.create false \
     && poetry install
-ENTRYPOINT ["poetry", "run", "data-validator"]
+ENTRYPOINT ["data-validator"]
